@@ -1,3 +1,6 @@
+import tkinter as tk
+
+
 class ParseLine:
     def __init__(self, t: str):
         self.d = {"line": list(), "inversion": list()}
@@ -14,3 +17,10 @@ class ParseLine:
 
     def __getitem__(self, item):
         return self.d[item]
+
+
+class Map(tk.Canvas):
+    def __init__(self, master, l):
+        tk.Canvas.__init__(self, master, width=400, height=400, bg="white")
+        f = open("lvls/%s/map.dat" % l)
+        f.close()
